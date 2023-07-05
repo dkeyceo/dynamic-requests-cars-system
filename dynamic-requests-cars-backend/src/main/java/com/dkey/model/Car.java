@@ -1,6 +1,7 @@
 package com.dkey.model;
 
 import com.dkey.enums.Color;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -18,6 +19,7 @@ public class Car {
     @Min(0)
     private int km;
     @ManyToOne(optional = false)
+    @JsonIgnoreProperties("cars")
     private Model model;
 
     public Car() {

@@ -1,5 +1,7 @@
 package com.dkey.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -15,8 +17,10 @@ public class Model {
     @Column(unique = true)
     private String name;
     @ManyToOne(optional = false)
+    @JsonIgnoreProperties("models")
     private Brand brand;
     @OneToMany(mappedBy = "model")
+    @JsonIgnore
     private Set<Car> cars = new HashSet<>();
 
     public Model() {
