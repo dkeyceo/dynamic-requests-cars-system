@@ -20,8 +20,105 @@
         <td *ngIf="!car.changed">Manual</td>
         <td>{{car.color}}</td>
         <td>{{car.km}} km</td>
-
       </tr>
     </tbody>
   </table>
+</div>
+
+<div class="container mb-5">
+  <form>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="brandSelected"><b>Brand:</b></label>
+          <select name="brandSelected" id="brandSelected" class="form-control">
+            <option value="" selected></option>
+            <option value="">M1</option>
+            <option value="">M2</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="model"><b>Model:</b></label>
+          <select name="model" id="model" class="form-control">
+            <option value="" selected></option>
+            <option value="">M1</option>
+            <option value="">M2</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="version"><b>Version:</b></label>
+          <div class="input-group">
+            <button class="btn btn-outline-danger">Clear</button>
+            <input type="text" name="version" id="version" class="form-control">
+            <button class="btn btn-outline-success">Filter</button>
+          </div> 
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="kmFrom"><b>KmFrom:</b></label>
+          <div class="input-group">
+            <button class="btn btn-outline-danger">Clear</button>
+            <input type="text" name="kmFrom" id="kmFrom" class="form-control">
+            <button class="btn btn-outline-success">Filter</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="kmTo"><b>KmTo:</b></label>
+          <div class="input-group">
+            <button class="btn btn-outline-danger">Clear</button>
+            <input type="text" name="kmTo" id="kmTo" class="form-control">
+            <button class="btn btn-outline-success">Filter</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+          <label for="changed"><b>Changed:</b></label>
+          <div class="form-control">
+            <label class="radio-inline">
+              <input type="radio" name="chanded" id="changed" checked>All
+            </label>
+            &nbsp;
+            <label class="radio-inline">
+              <input type="radio" name="chanded" id="changed">Manual
+            </label>
+            &nbsp;
+            <label class="radio-inline">
+              <input type="radio" name="chanded" id="changed">Automatic
+            </label>
+            &nbsp;
+          </div>
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group">
+          <label for="color"><b>Color:</b></label>
+          <select name="color" id="color" class="form-control">
+            <option value="">Choose color</option>
+            <option value="white">White</option>
+            <option value="black">Black</option>
+            <option value="grey">Grey</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-4"></div>
+      <div class="col-4">
+        <label for="reset"><b>Reset:</b></label>
+        <button class="btn btn-outline-danger form-control">
+          Clear filters
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
