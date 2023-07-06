@@ -45,9 +45,9 @@ public class CarsController {
                 filter.setEquals(searchRequestDTO.getModel());
                 carCriteria.setModel(filter);
             }
-            if(!StringUtils.isBlank(searchRequestDTO.getVerison())){
+            if(!StringUtils.isBlank(searchRequestDTO.getVersion())){
                 StringFilter filter = new StringFilter();
-                filter.setEquals(searchRequestDTO.getVerison());
+                filter.setContains(searchRequestDTO.getVersion());
                 carCriteria.setVersion(filter);
             }
             if(!StringUtils.isBlank(searchRequestDTO.getChanged())){

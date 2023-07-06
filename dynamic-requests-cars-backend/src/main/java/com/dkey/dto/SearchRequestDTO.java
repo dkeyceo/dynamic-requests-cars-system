@@ -3,7 +3,7 @@ package com.dkey.dto;
 public class SearchRequestDTO {
     private String brand;
     private String model;
-    private String verison;
+    private String version;
     private String changed;
     private String color;
     private Integer kmFrom;
@@ -25,12 +25,12 @@ public class SearchRequestDTO {
         this.model = model;
     }
 
-    public String getVerison() {
-        return verison;
+    public String getVersion() {
+        return version;
     }
 
-    public void setVerison(String verison) {
-        this.verison = verison;
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     public String getChanged() {

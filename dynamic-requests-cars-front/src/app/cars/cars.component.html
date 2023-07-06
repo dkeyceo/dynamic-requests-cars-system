@@ -56,9 +56,11 @@
         <div class="form-group">
           <label for="version"><b>Version:</b></label>
           <div class="input-group">
-            <button class="btn btn-outline-danger">Clear</button>
-            <input type="text" name="version" id="version" class="form-control">
-            <button class="btn btn-outline-success">Filter</button>
+            <button class="btn btn-outline-danger" (click)="clearVersion()"
+            [disabled]="!searchRequest.version">Clear</button>
+            <input type="text" name="version" id="version" class="form-control mr-1 ml-1" [(ngModel)]="searchRequest.version">
+            <button class="btn btn-outline-success" (click)="getCars()"
+            [disabled]="!searchRequest.version">Filter</button>
           </div> 
         </div>
       </div>
@@ -68,9 +70,12 @@
         <div class="form-group">
           <label for="kmFrom"><b>KmFrom:</b></label>
           <div class="input-group">
-            <button class="btn btn-outline-danger">Clear</button>
-            <input type="text" name="kmFrom" id="kmFrom" class="form-control">
-            <button class="btn btn-outline-success">Filter</button>
+            <button class="btn btn-outline-danger" (click)="clearKmFrom()"
+            [disabled]="!searchRequest.kmFrom">Clear</button>
+            <input type="text" name="kmFrom" id="kmFrom" class="form-control"
+            [(ngModel)]="searchRequest.kmFrom">
+            <button class="btn btn-outline-success" (click)="getCars()"
+            [disabled]="!searchRequest.kmFrom">Filter</button>
           </div>
         </div>
       </div>
@@ -78,9 +83,12 @@
         <div class="form-group">
           <label for="kmTo"><b>KmTo:</b></label>
           <div class="input-group">
-            <button class="btn btn-outline-danger">Clear</button>
-            <input type="text" name="kmTo" id="kmTo" class="form-control">
-            <button class="btn btn-outline-success">Filter</button>
+            <button class="btn btn-outline-danger" (click)="clearKmTo()"
+            [disabled]="!searchRequest.kmTo">Clear</button>
+            <input type="text" name="kmTo" id="kmTo" class="form-control"
+            [(ngModel)]="searchRequest.kmTo">
+            <button class="btn btn-outline-success" (click)="getCars()"
+            [disabled]="!searchRequest.kmTo">Filter</button>
           </div>
         </div>
       </div>
@@ -89,15 +97,18 @@
           <label for="changed"><b>Changed:</b></label>
           <div class="form-control">
             <label class="radio-inline">
-              <input type="radio" name="chanded" id="changed" checked>All
+              <input type="radio" name="chanded" id="changed" checked
+              [value]="''" [(ngModel)]="searchRequest.changed" (change)="getCars()">All
             </label>
             &nbsp;
             <label class="radio-inline">
-              <input type="radio" name="chanded" id="changed">Manual
+              <input type="radio" name="chanded" id="changed"
+              [value]="false" [(ngModel)]="searchRequest.changed" (change)="getCars()">Manual
             </label>
             &nbsp;
             <label class="radio-inline">
-              <input type="radio" name="chanded" id="changed">Automatic
+              <input type="radio" name="chanded" id="changed"
+              [value]="true" [(ngModel)]="searchRequest.changed" (change)="getCars()">Automatic
             </label>
             &nbsp;
           </div>
@@ -108,7 +119,7 @@
       <div class="col-4">
         <div class="form-group">
           <label for="color"><b>Color:</b></label>
-          <select name="color" id="color" class="form-control">
+          <select name="color" id="color" class="form-control" [(ngModel)]="searchRequest.color" (change)="getCars()">
             <option value="">Choose color</option>
             <option value="white">White</option>
             <option value="black">Black</option>
@@ -119,7 +130,8 @@
       <div class="col-4"></div>
       <div class="col-4">
         <label for="reset"><b>Reset:</b></label>
-        <button class="btn btn-outline-danger form-control">
+        <button (click)="clear()" 
+        class="btn btn-outline-danger form-control">
           Clear filters
         </button>
       </div>

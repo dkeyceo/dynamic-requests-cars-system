@@ -54,4 +54,31 @@ export class CarsComponent implements OnInit {
     }
     this.getCars();
   }
+  
+  clearVersion(){
+    this.searchRequest.version = '';
+    this.getCars();
+  }
+
+  clearKmFrom(){
+    this.searchRequest.kmFrom = null;
+    this.getCars();
+  }
+  
+  clearKmTo(){
+    this.searchRequest.kmTo = null;
+    this.getCars();
+  }
+
+  clear(){
+    this.brandSelected = null;
+    this.searchRequest.brand = '';
+    this.searchRequest.model = '';
+    this.searchRequest.version = '';
+    this.searchRequest.changed = '';
+    this.searchRequest.color = '';
+    this.searchRequest.kmFrom = null;
+    this.searchRequest.kmTo = null;
+    this.getCars();
+  }
 }
