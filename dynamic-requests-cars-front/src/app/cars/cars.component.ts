@@ -45,5 +45,13 @@ export class CarsComponent implements OnInit {
       console.log(err);
     });
   }
-
+  onChangeBrand(){
+    if(this.brandSelected){
+      this.searchRequest.brand = this.brandSelected.name;
+    }else{
+      this.searchRequest.brand = '';
+      this.searchRequest.model = '';
+    }
+    this.getCars();
+  }
 }

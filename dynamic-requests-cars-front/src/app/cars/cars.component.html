@@ -31,20 +31,24 @@
       <div class="col">
         <div class="form-group">
           <label for="brandSelected"><b>Brand:</b></label>
-          <select name="brandSelected" id="brandSelected" class="form-control">
-            <option value="" selected></option>
-            <option value="">M1</option>
-            <option value="">M2</option>
+          <select name="brandSelected" id="brandSelected" class="form-control"
+          [(ngModel)]="brandSelected" (change)="onChangeBrand()">
+            <option [ngValue]="null" selected>Choose brand</option>
+            <option [ngValue]="brand" *ngFor="let brand of brands">{{brand.name}}</option>
           </select>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="model"><b>Model:</b></label>
-          <select name="model" id="model" class="form-control">
-            <option value="" selected></option>
-            <option value="">M1</option>
-            <option value="">M2</option>
+          <select *ngIf="!brandSelected" name="model" id="model" class="form-control" disabled>
+            <option value="''" selected></option>
+          </select>
+
+          <select *ngIf="brandSelected" name="model" id="model" class="form-control"
+          [(ngModel)]="searchRequest.model" (change)="getCars()">
+            <option [ngValue]="''" selected>Choose model</option>
+            <option [ngValue]="model.name" *ngFor="let model of brandSelected.models">{{model.name}}</option>
           </select>
         </div>
       </div>
